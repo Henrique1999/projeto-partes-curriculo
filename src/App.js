@@ -1,25 +1,17 @@
-import logo from './logo.svg';
 import './App.css';
+import ArquivoProjeto from './Arquivos/arquivoProjeto.js';
 
+
+/* 
+Para rodar o projeto: "npm start", talvez precise de "cd my-app" (ambos comandos sem aspas)
+precisa ter o node.js instalado e o npm instalado. caso não tenha baixe nesse link: https://nodejs.org/en/
+*/
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+return (
+<>
+<ArquivoProjeto />
+</>
+);
 }
 
 export default App;

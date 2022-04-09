@@ -1,5 +1,5 @@
 import './App.css';
-import ArquivoProjeto from './Arquivos/arquivoProjeto.js';
+import ArquivoProjeto from './Components/arquivoProjeto.js';
 
 
 /* 

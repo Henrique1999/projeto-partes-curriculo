@@ -10,24 +10,11 @@ import miniimg20 from '../media/LayoutTestes/mini-imagem20.png';
 /* Esse arquivo está sendo levado ao arquivo App.js com o objetivo de ser a parte de "Projetos" do 
 Layout do site. */
 
-// Essa função é responsavel por decidir criar uma divisoria ou não. entenderá ela mais a frente.
-function divisoria(open, close) {
-if (open - 1 < close && open !== 1) {
-    return (
-    <>
-      <center>
-        <div className='divisoria'></div>
-      </center>
-    </>
-    )
-  }
-}
-
 
 
 /* Variavel responsavel por armazenar os dados dos projetos, caso você crie mais uma id com novos dados 
 aparecerá  mais uma "container" com os novos dados */
-const dados = [
+const dadosPrimario = [
   {
     id: 1,
     titulo: 'Projeto: site onde as pessoas criam seu portfolio',
@@ -36,7 +23,7 @@ const dados = [
     'visualia proposita, solum usus est ad spatia communium textuum occupanda et secundum magnitudinem quae ' +
     'opus est me temere scribere, caelum nimis pulchrum est ut aquam bibere et in sella staturam figere. , vide ' +
     'modo aliquem textum legentem invenisse eo usque',
-    imagemsR: [{imageDado: miniimg},{imageDado:  miniimg2},{imageDado:  miniimg3}],
+    imagemsR: [{id: 1, imageDado: miniimg},{id: 2,imageDado:  miniimg2},{id: 3,imageDado:  miniimg3}],
   },
   {
     id: 2,
@@ -47,48 +34,70 @@ const dados = [
     'invenisse eo usque ut gratam coniugem habeo dicere, capto cathedra tibi sedere, dabo tibi inepta actione, ' +
     'accipe libellum et scribe omnia positiva quae acciderunt. tu hodie, vel etiam esse "Salve ab extraneo ' +
     'accepi".',
-    imagemsR: [{imageDado: miniimg10}, {imageDado:  miniimg20}, {imageDado: miniimg3}],
+    imagemsR: [{id: 1,imageDado: miniimg10}, {id: 2,imageDado:  miniimg20}, {id: 3,imageDado: miniimg3}],
   }
 ];
 
+// Essa função é responsavel por decidir criar uma divisoria ou não. entenderá ela mais a frente.
+function divisoria(open) {
+  open = open - 1;
+if (open + 1 < 3 && open !== 0) {
+    return (
+    <>
+      <center>
+        <div className='divisoria'></div>
+      </center>
+    </>
+    )
+  }
+}
 
-
-/* imagemsPrin.map((imagee) => (
-  console.log(imagee)
-)) */
+function divisoriaImagemsDados(open) {
+  console.log(open);
+if (open < 2) {
+    return (
+    <>
+        <div className='divisoriaImagemsDados'></div>
+    </>
+    )
+  }
+}
+/* a */
+let a = 0;
+let b = 0;
 
 /* A partir daqui que começa o codigo que gera a parte de "projetos" do site. */
 export default function arquivoProjeto() {
-return (
-<>
+  return (
+    <>
  {/* Aqui é o titulo de toda a parte do Projeto */}
 <p className="tituloGeralProjeto">
   Meus projetos e parcipações detalhadas:
 </p>
-{dados.map((dado) =>
+{dadosPrimario.map((dadoApelido) =>
 <>
-
-{divisoria(dado.id, dado.length)}
-<div className="projeto" key={dado.id.toString}>
+{/* {console.log(b += 100)} */}
+{divisoria(dadoApelido.id)}
+<div className="projeto" key={dadoApelido.id.toString}>
 <div className="projetoContainer">
   <div className="divFlex"        style={{ margin: '0px 0px 10px 0px' }}>  
     <p className="tituloProjeto" >
-      {dado.titulo}
+      {dadoApelido.titulo}
     </p>
     <img className="linkCorrente" src={linkCorrente} alt="Click e acesse" />
   </div>
   <p className="descricaoProjeto">
- {dado.descricao}
+ {dadoApelido.descricao}
   </p>
   <p className="medLink">
     Media e links:
   </p>
   <div className="divFlex2" style={{ margin: '0px 0px 0px 90px' }}>
-    {dado.imagemsR.map((image) =>
+    {dadoApelido.imagemsR.map((imagemApelido) =>
       <>
-      {console.log(image.imageDado.length)}
       <div className='medLinkCont'>
-        <img className='miniimg' src={image.imageDado} alt='imagem'/>
+        <img className='miniimg' src={imagemApelido.imageDado} alt='imagem'/>
+        {/* {divisoriaImagemsDados(imagemApelido.id)} */}
       </div>
       </>
     )}

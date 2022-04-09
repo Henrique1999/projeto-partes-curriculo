@@ -27,7 +27,7 @@ if (open - 1 < close && open !== 1) {
 
 /* Variavel responsavel por armazenar os dados dos projetos, caso você crie mais uma id com novos dados 
 aparecerá  mais uma "container" com os novos dados */
-var dados = [
+const dados = [
   {
     id: 1,
     titulo: 'Projeto: site onde as pessoas criam seu portfolio',
@@ -36,7 +36,7 @@ var dados = [
     'visualia proposita, solum usus est ad spatia communium textuum occupanda et secundum magnitudinem quae ' +
     'opus est me temere scribere, caelum nimis pulchrum est ut aquam bibere et in sella staturam figere. , vide ' +
     'modo aliquem textum legentem invenisse eo usque',
-    imagemsR: [miniimg, miniimg2, miniimg3],
+    imagemsR: [{imageDado: miniimg},{imageDado:  miniimg2},{imageDado:  miniimg3}],
   },
   {
     id: 2,
@@ -47,7 +47,7 @@ var dados = [
     'invenisse eo usque ut gratam coniugem habeo dicere, capto cathedra tibi sedere, dabo tibi inepta actione, ' +
     'accipe libellum et scribe omnia positiva quae acciderunt. tu hodie, vel etiam esse "Salve ab extraneo ' +
     'accepi".',
-    imagemsR: [miniimg10, miniimg20, miniimg3],
+    imagemsR: [{imageDado: miniimg10}, {imageDado:  miniimg20}, {imageDado: miniimg3}],
   }
 ];
 
@@ -65,11 +65,11 @@ return (
 <p className="tituloGeralProjeto">
   Meus projetos e parcipações detalhadas:
 </p>
-{dados.map(dado => (
+{dados.map((dado) =>
 <>
 
-{divisoria(dado.id, dados.length)}
-<div className="projeto" key={dado.id}>
+{divisoria(dado.id, dado.length)}
+<div className="projeto" key={dado.id.toString}>
 <div className="projetoContainer">
   <div className="divFlex"        style={{ margin: '0px 0px 10px 0px' }}>  
     <p className="tituloProjeto" >
@@ -84,19 +84,20 @@ return (
     Media e links:
   </p>
   <div className="divFlex2" style={{ margin: '0px 0px 0px 90px' }}>
-    {dado.imagemsR.map((imagee) => (
+    {dado.imagemsR.map((image) =>
       <>
+      {console.log(image.imageDado.length)}
       <div className='medLinkCont'>
-        <img className='miniimg' src={imagee} alt='imagem'/>
+        <img className='miniimg' src={image.imageDado} alt='imagem'/>
       </div>
       </>
-    ))}
+    )}
   </div>
 
   </div>
 </div>
 </>
-))}
+)}
 
 
 </>

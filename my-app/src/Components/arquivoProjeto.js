@@ -23,7 +23,11 @@ const dadosPrimario = [
     'visualia proposita, solum usus est ad spatia communium textuum occupanda et secundum magnitudinem quae ' +
     'opus est me temere scribere, caelum nimis pulchrum est ut aquam bibere et in sella staturam figere. , vide ' +
     'modo aliquem textum legentem invenisse eo usque',
+<<<<<<< Updated upstream:my-app/src/Components/arquivoProjeto.js
     imagemsR: [miniimg, miniimg2, miniimg3],
+=======
+    imagemsR: [miniimg, miniimg2,miniimg3],
+>>>>>>> Stashed changes:my-app/src/Arquivos/arquivoProjeto.js
   },
   {
     id: 2,
@@ -34,7 +38,11 @@ const dadosPrimario = [
     'invenisse eo usque ut gratam coniugem habeo dicere, capto cathedra tibi sedere, dabo tibi inepta actione, ' +
     'accipe libellum et scribe omnia positiva quae acciderunt. tu hodie, vel etiam esse "Salve ab extraneo ' +
     'accepi".',
+<<<<<<< Updated upstream:my-app/src/Components/arquivoProjeto.js
     imagemsR: [miniimg10,  miniimg20, miniimg3, miniimg3],
+=======
+    imagemsR: [miniimg10, miniimg20, miniimg3],
+>>>>>>> Stashed changes:my-app/src/Arquivos/arquivoProjeto.js
   }
 ];
 
@@ -74,6 +82,7 @@ return (
     <p className="tituloGeralProjeto">
       Meus projetos e parcipações detalhadas:
     </p>
+<<<<<<< Updated upstream:my-app/src/Components/arquivoProjeto.js
     {dadosPrimario.map((dadoApelido, idex) =>
     <>
       {/* {console.log(b += 100)} */}
@@ -103,6 +112,25 @@ return (
             </>
           )}
         </div>
+=======
+    <img className="linkCorrente" src={linkCorrente} alt="Click e acesse" />
+  </div>
+  <p className="descricaoProjeto">
+ {dado.descricao}
+  </p>
+  <p className="medLink">
+    Media e links:
+  </p>
+  <div className="divFlex2" style={{ margin: '0px 0px 0px 90px' }}>
+    {dado.imagemsR.map((image) =>
+      <>
+      <div className='medLinkCont'>
+        <img className='miniimg' src={image} alt='imagem'/>
+      </div>
+      </>
+    )}
+  </div>
+>>>>>>> Stashed changes:my-app/src/Arquivos/arquivoProjeto.js
 
         </div>
       </div>

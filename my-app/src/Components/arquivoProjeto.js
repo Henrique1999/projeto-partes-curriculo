@@ -23,7 +23,7 @@ const dadosPrimario = [
     'visualia proposita, solum usus est ad spatia communium textuum occupanda et secundum magnitudinem quae ' +
     'opus est me temere scribere, caelum nimis pulchrum est ut aquam bibere et in sella staturam figere. , vide ' +
     'modo aliquem textum legentem invenisse eo usque',
-    imagemsR: [{id: 1, imageDado: miniimg},{id: 2,imageDado:  miniimg2},{id: 3,imageDado:  miniimg3}],
+    imagemsR: [miniimg, miniimg2, miniimg3],
   },
   {
     id: 2,
@@ -34,7 +34,7 @@ const dadosPrimario = [
     'invenisse eo usque ut gratam coniugem habeo dicere, capto cathedra tibi sedere, dabo tibi inepta actione, ' +
     'accipe libellum et scribe omnia positiva quae acciderunt. tu hodie, vel etiam esse "Salve ab extraneo ' +
     'accepi".',
-    imagemsR: [{id: 1,imageDado: miniimg10}, {id: 2,imageDado:  miniimg20}, {id: 3,imageDado: miniimg3}],
+    imagemsR: [miniimg10,  miniimg20, miniimg3, miniimg3],
   }
 ];
 
@@ -68,44 +68,45 @@ let b = 0;
 
 /* A partir daqui que começa o codigo que gera a parte de "projetos" do site. */
 export default function arquivoProjeto() {
-  return (
-    <>
+return (
+  <>
  {/* Aqui é o titulo de toda a parte do Projeto */}
-<p className="tituloGeralProjeto">
-  Meus projetos e parcipações detalhadas:
-</p>
-{dadosPrimario.map((dadoApelido) =>
-<>
-{/* {console.log(b += 100)} */}
-{divisoria(dadoApelido.id)}
-<div className="projeto" key={dadoApelido.id.toString}>
-<div className="projetoContainer">
-  <div className="divFlex"        style={{ margin: '0px 0px 10px 0px' }}>  
-    <p className="tituloProjeto" >
-      {dadoApelido.titulo}
+    <p className="tituloGeralProjeto">
+      Meus projetos e parcipações detalhadas:
     </p>
-    <img className="linkCorrente" src={linkCorrente} alt="Click e acesse" />
-  </div>
-  <p className="descricaoProjeto">
- {dadoApelido.descricao}
-  </p>
-  <p className="medLink">
-    Media e links:
-  </p>
-  <div className="divFlex2" style={{ margin: '0px 0px 0px 90px' }}>
-    {dadoApelido.imagemsR.map((imagemApelido) =>
-      <>
-      <div className='medLinkCont'>
-        <img className='miniimg' src={imagemApelido.imageDado} alt='imagem'/>
-        {/* {divisoriaImagemsDados(imagemApelido.id)} */}
-      </div>
-      </>
-    )}
-  </div>
+    {dadosPrimario.map((dadoApelido, idex) =>
+    <>
+      {/* {console.log(b += 100)} */}
+      {divisoria(dadoApelido.id)}
+      <div className="projeto" key={dadoApelido.id.toString}>
+      <div className="projetoContainer">
+        <div className="divFlex"        style={{ margin: '0px 0px 10px 0px' }}>  
+          <p className="tituloProjeto" >
+            {dadoApelido.titulo}
+          </p>
+          <img className="linkCorrente" src={linkCorrente} alt="Click e acesse" />
+        </div>
+        <p className="descricaoProjeto">
+          {dadoApelido.descricao}
+        </p>
+        <p className="medLink">
+          Media e links:
+        </p>
+        <div className="divFlex2" style={{ margin: '0px 0px 0px 90px' }}>
+          {console.log(dadoApelido.imagemsR.length)}
+          {dadoApelido.imagemsR.map((imagemApelido) =>
+            <>
+            <div className='medLinkCont'>
+              <img className='miniimg' src={imagemApelido} alt='imagem'/>
+              {/* {divisoriaImagemsDados(imagemApelido.id)} */}
+            </div>
+            </>
+          )}
+        </div>
 
-  </div>
-</div>
-</>
+        </div>
+      </div>
+  </>
 )}
 
 

@@ -21,13 +21,12 @@
 .divFlex2 {
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
   align-items: center;
-  width: 100%;
-  max-width: 1200px;
+  width: 1200px;
   padding: 0px;
   height: 300px;
-  overflow: hidden;
+  overflow-y: hidden;
+  overflow-x: auto;
 }
 
 .tituloGeralProjeto {
@@ -92,9 +91,11 @@
   height: 300px;
   background-color: #868686;
   margin: 0px 10px 0px 0px;
+  
 }
 
 .miniimg {
+  position: relative;
   width: 100%;
   height: 100%;
   object-fit: contain;
